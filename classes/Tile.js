@@ -5,9 +5,9 @@
 
 class Tile {
 
-  constructor(logo) {
-    this.answerVisible = false
-    this.isMatched = false
+  constructor(logo, isMatched, answerVisible) {
+    this.answerVisible = answerVisible
+    this.isMatched = isMatched
     this.logo = logo
     this.addEventListener("click", flip);
   }
