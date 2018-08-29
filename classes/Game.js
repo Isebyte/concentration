@@ -21,23 +21,25 @@ class Game {
   				url: '../saves/save.txt',
   				complete: function (xhr){
     			if (xhr.status == 404){
-      			alert("No saved game exists so starting a new game");
-		 			 	this.score = 0;
-		 			 	document.getElementbyId("score").innerHTML = 0;
+      			newGameSetup();
     			}
   			}
 			});
 
 		 } else {
-			 alert("Starting a new game");
-			 this.score = 0;
-			 document.getElementbyId("score").innerHTML = 0;
-
+				newGameSetup();
 
 		 }
 	}
 
-	function gameCompleted() {
+	newGameSetup() {
+		alert("No saved game exists so starting a new game");
+		this.score = 0;
+		document.getElementbyId("score").innerHTML = 0;
+		
+	}
+
+	gameCompleted() {
 
 	}
 

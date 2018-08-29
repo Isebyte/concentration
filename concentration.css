@@ -1,3 +1,18 @@
 body {
 	margin: 100px;
 }
+
+.wrapper {
+    border: 2px solid #f76707;
+    border-radius: 5px;
+    background-color: #fff4e6;
+		display: grid;
+  	grid-template-columns: repeat(3, 1fr);
+  	grid-gap: 10px;
+}
+
+.wrapper > div {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 1em;
+}
