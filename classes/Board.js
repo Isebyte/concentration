@@ -6,7 +6,7 @@
 class Board {
 
   constructor() {
-    this.numPieces = numPieces
+    this.numPieces = numPieces;
     this.tiles = tiles; // holds array of tiles
   }
 
@@ -14,37 +14,28 @@ class Board {
    * Fills a board with tiles from randomly shuffled tiles array
    */
   fillBoard() {
-<<<<<<< HEAD
-
-=======
     for (let j = 0; j < Math.pow(this.numPieces, 2); j++){
       for (let k = 0; k < Math.pow(this.numPieces, 2); k++){
-       let piece = new Tile(answerVisible = false, isMatched= false, logo = '1' )
-       this.tiles[j][k] = piece
+       let piece = new Tile(answerVisible = false, isMatched= false, logo = '1' );
+       this.tiles[j][k] = piece;
     }
   }
-    this.tiles = shuffleTiles(tiles)
->>>>>>> fffc18565e83668d7c3cf21ddc1bc7efc0b1161d
+    this.tiles = shuffleTiles(tiles);
   }
 
   /**
    * Fills a board with tiles from previously saved game.
    */
   loadBoard() {
-<<<<<<< HEAD
-    this.tiles = textParse();
-    // render board
-=======
-    prev_game = textParse(filename)
+    prev_game = textParse();
       for (let i = 0; i < prev_game.numPieces; i++){
         for (let j = 0; j < Math.pow(prev_game.numPieces, 2); j++){
           for (let k = 0; k < Math.pow(prev_game.numPieces, 2); k++){
-           let piece = new Tile(prev_game.tile[i])
-           this.tiles[j][k] = piece
+           let piece = new Tile(prev_game.tile[i]);
+           this.tiles[j][k] = piece;
         }
       }
     }
->>>>>>> fffc18565e83668d7c3cf21ddc1bc7efc0b1161d
   }
 
   /**
