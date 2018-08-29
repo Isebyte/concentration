@@ -15,10 +15,10 @@ class Game {
  	* @param array e
  	* referenced from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
  	*/
- 	function shuffle(e) {
- 		for (let i = e.length - 1; i > 0; --i) {
+ 	function shuffle(array) {
+ 		for (let i = array.length - 1; i > 0; --i) {
  			const j = Math.floor(Math.random() * (i + 1));
- 			[e[i], e[j]] = [e[j], e[i]];
+ 			[array[i], array[j]] = [array[j], array[i]];
  		}
  		return e;
  	}
