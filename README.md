@@ -1,6 +1,7 @@
 # Concentration
 
 ## Class
+
 4x4 Board
 Game Class
 Cards/tiles => Logos flip match
