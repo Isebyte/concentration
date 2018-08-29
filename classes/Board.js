@@ -13,22 +13,33 @@ class Board {
    * Fills a board with tiles from randomly shuffled tiles array
    */
   fillBoard() {
-    
+
   }
 
   /**
-   * Fills a board with tiles from previously saved game. 
+   * Fills a board with tiles from previously saved game.
    */
   loadBoard() {
-
+    this.tiles = textParse();
+    // render board
   }
 
   /**
-   * Parses tile array from locally saved text file 
-   * @param {*} filename 
+   * Parses tile array from locally saved text file
+   * @param {*} filename
+   * @return tiles array
    */
-  textParse(filename) {
-
+  textParse() {
+    // load in JSON data from text file then parse into an array of tile objects
+    var parsedTiles = [];
+    $.getJSON("../saves/save.json", function (data) {
+      for(var i in data) {
+        parsedTiles.push([i, JSON.parse(data[i]]));
+      }
+    });
+    // handle any errors
+    .error(function() { alert("Error. Please refresh the page"); })
+    return parsedTiles;
   }
 
   /*
