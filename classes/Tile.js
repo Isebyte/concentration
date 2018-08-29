@@ -5,11 +5,9 @@
 
 class Tile {
 
-  constructor(x_coordinate, y_coordinate, logo) {
+  constructor(logo) {
     this.answerVisible = false
     this.isMatched = false
-    this.x_coordinate = x_coordinate
-    this.y_coordinate = y_coordinate
     this.logo = logo
     this.addEventListener("click", flip);
   }
@@ -19,7 +17,7 @@ class Tile {
   }
 }
 
-checkMatch(a, b){
+function checkMatch(a, b){
   if(a.logo == b.logo){
     a.isMatched = true
     b.isMatched = true
