@@ -3,6 +3,25 @@
 *
 */
 
+var imgArray = new Array();
+
+imgArray[0] = new Image();
+imgArray[0].src = '../img/amazon.jpg';
+imgArray[1] = new Image();
+imgArray[1].src = '../img/cisco.jpg';
+imgArray[2] = new Image();
+imgArray[2].src = '../img/facebook.jpg';
+imgArray[3] = new Image();
+imgArray[3].src = '../img/google.jpg';
+imgArray[4] = new Image();
+imgArray[4].src = '../img/ibm.jpg';
+imgArray[5] = new Image();
+imgArray[5].src = '../img/microsoft.jpg';
+imgArray[6] = new Image();
+imgArray[6].src = '../img/oracle.jpg';
+imgArray[7] = new Image();
+imgArray[7].src = '../img/samsung.jpg';
+
 class Board {
 
   constructor() {
@@ -14,6 +33,14 @@ class Board {
    * Fills a board with tiles from randomly shuffled tiles array
    */
   fillBoard() {
+    var i;
+    var j;
+    for (i = 0; i < this.numPieces; i++) {
+      for (j = 0; j < 2; j++) { // fill with two of each
+        let newTile = new Tile(imgArray[i], false, false);
+      }
+      j = 0;
+    }
     this.tiles = shuffleTiles(tiles);
   }
 
@@ -54,6 +81,13 @@ class Board {
       [array[i], array[j]] = [array[j], array[i]];
     }
     return e;
+  }
+
+  /**
+  * Physically renders tiles onto the screen
+  */
+  renderTiles() {
+    
   }
 
 

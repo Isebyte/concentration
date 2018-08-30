@@ -9,7 +9,7 @@ class Tile {
     this.answerVisible = answerVisible
     this.isMatched = isMatched
     this.logo = logo
-    this.addEventListener("click", flip);
+    this.addEventListener("click", flip());
   }
 
   flip(){

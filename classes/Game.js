@@ -39,7 +39,7 @@ class Game {
 		alert("No saved game exists so starting a new game");
 		this.score = 0;
 		document.getElementbyId("score").innerHTML = 0;
-		board.fillBoard()
+		board.fillBoard();
 	}
 
 	gameCompleted() {
