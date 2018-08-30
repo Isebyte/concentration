@@ -14,6 +14,7 @@ class Game {
 	* game or if they want to have a new board.
 	*/
 	newGame() {
+			var currentBoard = new Board();
 		 if(confirm("Do you wish to load a saved game?")) {
 			 // check to see if a saved game exists
 			 $.ajax({
@@ -21,22 +22,24 @@ class Game {
   				url: '../saves/save.txt',
   				complete: function (xhr){
     			if (xhr.status == 404){
-      			newGameSetup();
-    			}
+      			newGameSetup(currentBoard);
+    			} else {
+
+					}
   			}
 			});
 
 		 } else {
-				newGameSetup();
+				newGameSetup(currentBoard);
 
 		 }
 	}
 
-	newGameSetup() {
+	newGameSetup(board) {
 		alert("No saved game exists so starting a new game");
 		this.score = 0;
 		document.getElementbyId("score").innerHTML = 0;
-		
+		board.fillBoard()
 	}
 
 	gameCompleted() {

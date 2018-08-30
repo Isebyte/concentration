@@ -15,14 +15,21 @@ class Tile {
   flip(){
         //TODO: animation in JQuery
   }
-}
 
-function checkMatch(a, b){
-  if(a.logo == b.logo){
-    a.isMatched = true
-    b.isMatched = true
 
-    a.answerVisible = true
-    b.answerVisible = true
+  /**
+  * Compares two tiles, returns true if they are matching
+  */
+  function checkMatch(a, b){
+    if(a.logo == b.logo){
+      a.isMatched = true
+      b.isMatched = true
+
+      a.answerVisible = true
+      b.answerVisible = true
+
+      return true;
+    } else {
+      return false; }
   }
 }

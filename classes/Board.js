@@ -5,16 +5,15 @@
 
 class Board {
 
-  constructor(tiles) {
+  constructor() {
     this.numPieces = numPieces;
-    this.tiles = tiles; // holds array of tiles
+    this.tiles = []; // holds array of tiles. Starts empty
   }
 
   /**
    * Fills a board with tiles from randomly shuffled tiles array
    */
   fillBoard() {
-
     this.tiles = shuffleTiles(tiles);
   }
 
@@ -23,7 +22,7 @@ class Board {
    */
   loadBoard() {
     prev_game = textParse(); // get array from save.json file
-      
+    this.tiles = prev_game;
   }
 
   /**
