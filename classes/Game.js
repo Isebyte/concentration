@@ -13,7 +13,7 @@ class Game {
 	*
 	*/
 	newGameSetup() {
-		alert("No saved game exists so starting a new game");
+		alert("Starting a new game...");
 		this.score = 0;
 		document.getElementById("score").innerHTML = 0;
 	}
@@ -24,7 +24,7 @@ class Game {
 	*/
 	newGame() {
 			var currentBoard = new Board();
-		 if(confirm("Do you wish to load a saved game? Select cancel to start a new game.")) {
+		 if(confirm("Do you wish to load a saved game? Press 'cancel' to start a new game.")) {
 			 currentBoard.loadBoard();
 		 } else {
 			 this.newGameSetup();
@@ -33,7 +33,8 @@ class Game {
 	}
 
 	gameCompleted() {
-
+		alert("Game completed! Final score: " + this.score)
+		newGame()
 	}
 
 }
