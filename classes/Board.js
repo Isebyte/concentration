@@ -5,21 +5,21 @@
 
 var imgArray = new Array();
 
-imgArray[0] = new Image();
+imgArray[0] = new Image(200,200);
 imgArray[0].src = '../concentration/img/amazon.jpg';
-imgArray[1] = new Image();
+imgArray[1] = new Image(200,200);
 imgArray[1].src = '../concentration/img/cisco.png';
-imgArray[2] = new Image();
+imgArray[2] = new Image(200,200);
 imgArray[2].src = '../concentration/img/facebook.png';
-imgArray[3] = new Image();
+imgArray[3] = new Image(200,200);
 imgArray[3].src = '../concentration/img/google.png';
-imgArray[4] = new Image();
+imgArray[4] = new Image(200,200);
 imgArray[4].src = '../concentration/img/ibm.jpg';
-imgArray[5] = new Image();
+imgArray[5] = new Image(200,200);
 imgArray[5].src = '../concentration/img/microsoft.png';
-imgArray[6] = new Image();
+imgArray[6] = new Image(200,200);
 imgArray[6].src = '../concentration/img/oracle.png';
-imgArray[7] = new Image();
+imgArray[7] = new Image(200,200);
 imgArray[7].src = '../concentration/img/samsung.png';
 
 class Board {
@@ -106,12 +106,16 @@ class Board {
       addTile.appendChild(back);
 
       // Then append the whole thing onto the body
-      document.getElementById('wrapper')[0].appendChild(addTile);
-      document.getElementById(addTile.id).addEventListener("click",flip());
+      document.getElementsByClassName('wrapper')[0].appendChild(addTile);
+      // link flip animation to tile
+      $(addTile.id).flip({
+        axis: 'x',
+        trigger: 'click'
+      });
       // append images to back of cards
       var logoImg = this.tiles[i].logo;
       console.log(logoImg);
-      document.getElementById("back").appendChild(logoImg);
+      document.getElementsByClassName("back")[0].appendChild(logoImg);
     }
   }
 
