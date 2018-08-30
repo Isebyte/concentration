@@ -1,9 +1,8 @@
+/**
+   * Main method to be executed on page load
+   */
 window.onload = function(){
-    console.log("Creating new game");
-    current = new Game();
-    console.log("Starting game");
+    console.log("window.onload");
+    let current = new Game();
     current.newGame();
-
-
-
 }
