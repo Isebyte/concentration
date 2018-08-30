@@ -3,5 +3,5 @@ window.onload = function(){
     current.newGame()
 
 
-    
+
 }
