@@ -33,15 +33,16 @@ class Board {
    * Fills a board with tiles from randomly shuffled tiles array
    */
   fillBoard() {
-    
     var i;
     var j;
     for (i = 0; i < this.numPieces; i++) {
       for (j = 0; j < 2; j++) { // fill with two of each
-        let newTile = new Tile(imgArray[i], false, false);
+        var newTile = new Tile(imgArray[i], false, false);
+        this.tiles[i] = newTile;
       }
       j = 0;
     }
+    console.log("filling board: " + this.tiles);
     this.tiles = this.shuffleTiles(this.tiles);
     this.renderTiles();
   }
@@ -50,7 +51,7 @@ class Board {
    * Fills a board with tiles from previously saved game.
    */
   loadBoard() {
-    prev_game = this.textParse(); // get array from save.json file
+    var prev_game = this.textParse(); // get array from save.json file
     this.tiles = prev_game;
     this.renderTiles();
   }
@@ -104,13 +105,13 @@ class Board {
       addTile.appendChild(front);
       addTile.appendChild(back);
 
-      // append images to back of cards
-      var logoImg = this.tiles[i];
-      document.getElementById("back").appendChild(logoImg);
-
       // Then append the whole thing onto the body
-      document.getElementbyIdName('wrapper')[0].appendChild(addTile);
+      document.getElementById('wrapper')[0].appendChild(addTile);
       document.getElementById(addTile.id).addEventListener("click",flip());
+      // append images to back of cards
+      var logoImg = this.tiles[i].logo;
+      console.log(logoImg);
+      document.getElementById("back").appendChild(logoImg);
     }
   }
 
