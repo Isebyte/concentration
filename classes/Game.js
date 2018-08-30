@@ -10,7 +10,7 @@ class Game {
 	}
 
 	/**
-	*
+	* Reset game member variables
 	*/
 	newGameSetup() {
 		alert("Starting a new game...");
@@ -19,7 +19,7 @@ class Game {
 	}
 
 	/**
-	* upon opening game user is prompted if they want to load a previously saved
+	* Upon opening game, user is prompted if they want to load a previously saved
 	* game or if they want to have a new board.
 	*/
 	newGame() {
@@ -32,6 +32,9 @@ class Game {
 		 }
 	}
 
+	/**
+	*	Game is done. Restart logic from newGame()
+	*/
 	gameCompleted() {
 		alert("Game completed! Final score: " + this.score)
 		newGame()
