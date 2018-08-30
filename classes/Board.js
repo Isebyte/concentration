@@ -51,7 +51,7 @@ class Board {
    * Fills a board with tiles from previously saved game.
    */
   loadBoard() {
-    prev_game = this.textParse(); // get array from save.json file
+    var prev_game = this.textParse(); // get array from save.json file
     this.tiles = prev_game;
     this.renderTiles();
   }
