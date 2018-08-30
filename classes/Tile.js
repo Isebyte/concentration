@@ -9,18 +9,18 @@ class Tile {
     this.answerVisible = answerVisible
     this.isMatched = isMatched
     this.logo = logo
-    this.addEventListener("click", flip());
   }
 
+  // See https://nnattawat.github.io/flip/
   flip(){
-        //TODO: animation in JQuery
-  }
+    $(this.id).attr("trigger", "click");
 
+  }
 
   /**
   * Compares two tiles, returns true if they are matching
   */
-  function checkMatch(a, b){
+  checkMatch(a, b) {
     if(a.logo == b.logo){
       a.isMatched = true
       b.isMatched = true

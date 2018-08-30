@@ -10,36 +10,26 @@ class Game {
 	}
 
 	/**
+	*
+	*/
+	newGameSetup() {
+		alert("No saved game exists so starting a new game");
+		this.score = 0;
+		document.getElementById("score").innerHTML = 0;
+	}
+
+	/**
 	* upon opening game user is prompted if they want to load a previously saved
 	* game or if they want to have a new board.
 	*/
 	newGame() {
 			var currentBoard = new Board();
-		 if(confirm("Do you wish to load a saved game?")) {
-			 // check to see if a saved game exists
-			 $.ajax({
-  		 		type: 'HEAD', // make a HTTP HEAD request with Ajax
-  				url: '../saves/save.txt',
-  				complete: function (xhr){
-    			if (xhr.status == 404){
-      			newGameSetup(currentBoard);
-    			} else {
-
-					}
-  			}
-			});
-
+		 if(confirm("Do you wish to load a saved game? Select cancel to start a new game.")) {
+			 currentBoard.loadBoard();
 		 } else {
-				newGameSetup(currentBoard);
-
+			 this.newGameSetup();
+			 currentBoard.fillBoard();
 		 }
-	}
-
-	newGameSetup(board) {
-		alert("No saved game exists so starting a new game");
-		this.score = 0;
-		document.getElementbyId("score").innerHTML = 0;
-		board.fillBoard();
 	}
 
 	gameCompleted() {
