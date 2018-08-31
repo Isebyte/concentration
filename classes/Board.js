@@ -40,14 +40,8 @@ class Board {
       for (j = 0; j < 2; j++) { // fill with two of each
         console.log(imgArray[i].src);
         var newTile = new Tile(imgArray[i].src, false, false);
-        if (isSecond == false) {
-          this.tiles[i] = newTile;
-          isSecond = true;
-        } else {
-          this.tiles[i+1] = newTile;
-        }
+        this.tiles.push(newTile);
       }
-      isSecond = false;
       j = 0;
     }
     console.log(this.tiles);
@@ -104,7 +98,7 @@ class Board {
     for (i = 0; i< 16; i++) {
       var addTile = document.createElement('div');
       addTile.id = "card-" + i;
-      addTile.class = "card";
+      addTile.className = "card";
       // Create the inner div before appending to the body
       var front = document.createElement('div');
       var back = document.createElement('div');
@@ -115,11 +109,13 @@ class Board {
 
       // Then append the whole thing onto the body
       document.getElementsByClassName('wrapper')[0].appendChild(addTile);
+
       // link flip animation to tile
-      $(addTile.id).flip({
-        axis: 'x',
-        trigger: 'click'
-      });
+      // See https://nnattawat.github.io/flip/
+      // $(addTile.id).flip({
+      //   trigger: 'click'
+      // });
+
       // append images to back of cards
       var logoImg = this.tiles[i].logo;
       console.log(logoImg);

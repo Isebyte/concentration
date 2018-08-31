@@ -11,12 +11,6 @@ class Tile {
     this.logo = logo
   }
 
-  // See https://nnattawat.github.io/flip/
-  flip(){
-    $(this.id).attr("trigger", "click");
-
-  }
-
   /**
   * Compares two tiles, returns true if they are matching
   */
