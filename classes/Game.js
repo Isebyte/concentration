@@ -23,7 +23,7 @@ class Game {
 	* game or if they want to have a new board.
 	*/
 	newGame() {
-			var currentBoard = new Board();
+		var currentBoard = new Board();
 		 if(confirm("Do you wish to load a saved game? Press 'cancel' to start a new game.")) {
 			 currentBoard.loadBoard();
 		 } else {

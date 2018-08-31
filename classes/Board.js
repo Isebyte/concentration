@@ -27,6 +27,7 @@ class Board {
   constructor() {
     this.numPieces = 16;
     this.tiles = []; // holds array of tiles. Starts empty
+    this.numPiecesMatched = 0
   }
 
   /**
@@ -61,7 +62,8 @@ class Board {
    * @param {*} filename
    * @return tiles array
    */
-  textParse() {
+  textParse(filename) {
+    console.log('textParse()')
     // load in JSON data from text file then parse into an array of tile objects
     var parsedTiles = [];
     // $.getJSON("../saves/save.json", function (data) {
@@ -117,6 +119,29 @@ class Board {
       console.log(logoImg);
       document.getElementsByClassName("back")[0].appendChild(logoImg);
     }
+  }
+
+ /**
+  * Determines if one move has been made i.e. two pieces have been chosen
+  */
+  finishedOneMove(){
+    console.log('finishedOneMove')
+    let numPiecesChosen = 0
+    for (let i = 0; i < this.numPieces; i++){
+      if(this.tiles[i].answerVisible){
+        numPiecesChosen += 1
+      }
+    }
+
+    if(numPiecesChosen == 2){
+      if(checkMatch()){
+        this.numPiecesMatched += 2
+        if(this.numPiecesMatched == this.numPieces){
+          gameCompleted()
+        }
+      }
+    }  
+
   }
 
 

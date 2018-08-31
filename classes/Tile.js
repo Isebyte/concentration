@@ -11,10 +11,12 @@ class Tile {
     this.logo = logo
   }
 
-  // See https://nnattawat.github.io/flip/
+  // Adapted from: https://nnattawat.github.io/flip/
   flip(){
     $(this.id).attr("trigger", "click");
-
+    var numMatches = 0
+    var numFlipped = 0
+    finishedOneMove()
   }
 
   /**
