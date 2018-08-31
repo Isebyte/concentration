@@ -110,12 +110,6 @@ class Board {
       // Then append the whole thing onto the body
       document.getElementsByClassName('wrapper')[0].appendChild(addTile);
 
-      // link flip animation to tile
-      // See https://nnattawat.github.io/flip/
-      // $(addTile.id).flip({
-      //   trigger: 'click'
-      // });
-
       // append images to back of cards
       var logoImg = this.tiles[i].logo;
       console.log(logoImg);
