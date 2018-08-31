@@ -5,27 +5,27 @@
 
 var imgArray = new Array();
 
-imgArray[0] = new Image(200,200);
+imgArray[0] = new Image(100,100);
 imgArray[0].src = '../concentration/img/amazon.jpg';
-imgArray[1] = new Image(200,200);
+imgArray[1] = new Image(100,100);
 imgArray[1].src = '../concentration/img/cisco.png';
-imgArray[2] = new Image(200,200);
+imgArray[2] = new Image(100,100);
 imgArray[2].src = '../concentration/img/facebook.png';
-imgArray[3] = new Image(200,200);
+imgArray[3] = new Image(100,100);
 imgArray[3].src = '../concentration/img/google.png';
-imgArray[4] = new Image(200,200);
+imgArray[4] = new Image(100,100);
 imgArray[4].src = '../concentration/img/ibm.jpg';
-imgArray[5] = new Image(200,200);
+imgArray[5] = new Image(100,100);
 imgArray[5].src = '../concentration/img/microsoft.png';
-imgArray[6] = new Image(200,200);
+imgArray[6] = new Image(100,100);
 imgArray[6].src = '../concentration/img/oracle.png';
-imgArray[7] = new Image(200,200);
+imgArray[7] = new Image(100,100);
 imgArray[7].src = '../concentration/img/samsung.png';
 
 class Board {
 
   constructor() {
-    this.numPieces = 16;
+    this.numPieces = 8;
     this.tiles = []; // holds array of tiles. Starts empty
   }
 
@@ -35,14 +35,22 @@ class Board {
   fillBoard() {
     var i;
     var j;
+    var isSecond = false;
     for (i = 0; i < this.numPieces; i++) {
       for (j = 0; j < 2; j++) { // fill with two of each
-        var newTile = new Tile(imgArray[i], false, false);
-        this.tiles[i] = newTile;
+        console.log(imgArray[i].src);
+        var newTile = new Tile(imgArray[i].src, false, false);
+        if (isSecond == false) {
+          this.tiles[i] = newTile;
+          isSecond = true;
+        } else {
+          this.tiles[i+1] = newTile;
+        }
       }
+      isSecond = false;
       j = 0;
     }
-    console.log("filling board: " + this.tiles);
+    console.log(this.tiles);
     this.tiles = this.shuffleTiles(this.tiles);
     this.renderTiles();
   }
@@ -93,7 +101,7 @@ class Board {
   renderTiles() {
     console.log("appending tiles");
     var i;
-    for (i = 0; i< this.numPieces; i++) {
+    for (i = 0; i< 16; i++) {
       var addTile = document.createElement('div');
       addTile.id = "card-" + i;
       addTile.class = "card";
@@ -115,7 +123,12 @@ class Board {
       // append images to back of cards
       var logoImg = this.tiles[i].logo;
       console.log(logoImg);
-      document.getElementsByClassName("back")[0].appendChild(logoImg);
+      var tileImg = document.createElement('img');
+      tileImg.id = "tileImg";
+      tileImg.height = 100;
+      tileImg.width = 100;
+      tileImg.src = logoImg;
+      document.getElementById(addTile.id).getElementsByClassName("back")[0].appendChild(tileImg);
     }
   }
 
