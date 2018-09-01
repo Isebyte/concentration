@@ -24,6 +24,7 @@ class Game {
 	* game or if they want to have a new board.
 	*/
 	newGame() {
+		current = this;
 		$( ".wrapper" ).empty(); // clear everything
 		this.currentBoard = new Board();
 		tiles = []; // empty tile array
@@ -57,7 +58,6 @@ class Game {
 		this.newGame()
 	}
 
-
 }
 
 /**
@@ -65,17 +65,14 @@ class Game {
 */
 function setVisible(id,game) {
 	// match card id to tile objects
-	//console.log(id + " flipped");
+	console.log(id + " flipped");
 	var i = parseInt(id, 10); // convert string to int
-	tiles[i].answerVisible = true;
 
 	numPiecesChosen.push(tiles[i]);
 	//console.log(numPiecesChosen );
 	if(numPiecesChosen.length == 2){
 		//debugger;
 		this.finishedOneMove(id, game);
-	} else {
-		$(numPiecesChosen[0].tileId).off('click'); // cannot unflip first chosen tile
 	}
 }
 
@@ -84,16 +81,18 @@ function setVisible(id,game) {
  */
 function finishedOneMove(id,game){
 		//console.log('finishedOneMove');
+		console.log(numPiecesChosen);
 		// temporarily block all other clicks
 		$("#blockDiv").show();
 		if(numPiecesChosen[0].checkMatch(numPiecesChosen[1])){
+			console.log("Match made");
 			numPiecesMatched += 2;
 			game.score += 100;
 			document.getElementById("score").innerHTML = game.score;
 
 			// disable reflipping
-			$(numPiecesChosen[0].tileId).off('click');
-			$(numPiecesChosen[1].tileId).off('click');
+			$(numPiecesChosen[0].tileId).off(".flip");
+			$(numPiecesChosen[1].tileId).off(".flip");
 			numPiecesChosen = [];
 			// console.log("Turned off flipping for "+ id);
 			if(numPiecesMatched === 16){
@@ -105,32 +104,15 @@ function finishedOneMove(id,game){
 			var timeout = setTimeout(
 			 function()
 			 {
-				 //console.log("Not a match");
-				 //debugger;
-				 $(numPiecesChosen[0].tileId).on('click', function() {$(".card").flip({ trigger: 'click' });});
-				 $(numPiecesChosen[0].tileId).off('flip:done'); // prevent double callback
-				 $(numPiecesChosen[1].tileId).off('flip:done');
+				 console.log("Not a match");
 				 $(numPiecesChosen[0].tileId).flip(false);
-				 $(numPiecesChosen[1].tileId).flip(false);
+		 			$(numPiecesChosen[1].tileId).flip(false);
+		 			console.log("unflipped");
 
-
-				 // reinit callback
-				 $(numPiecesChosen[0].tileId).on('flip:done',function(){
-					 //console.log("reinit flip callback");
-						 setVisible(this.id, game); // in Game.js
-
-				 });
-				 $(numPiecesChosen[1].tileId).on('flip:done',function(){
-					 //console.log("reinit flip callback");
-						 setVisible(this.id, game); // in Game.js
-
-				 });
 				 numPiecesChosen = []; // reset
 				 $("#blockDiv").hide();  // allow clicks
 			 }, 500);
 
 
 	}
-
-
- }
+}
