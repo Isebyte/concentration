@@ -1,3 +1,9 @@
+
+// Global variables
+var tiles = []; // holds array of tiles. Starts empty
+var numPiecesChosen = []; // holds array of up to 2 tiles.
+var numPiecesMatched = 0;
+
 /**
    * Main method to be executed on page load
    */
@@ -5,10 +11,4 @@ window.onload = function(){
     console.log("window.onload");
     let current = new Game();
     current.newGame();
-
-    // add flipping to each tile
-    // See https://nnattawat.github.io/flip/
-    $(".card").flip({
-      trigger: 'click'
-     });
 }

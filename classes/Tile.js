@@ -9,17 +9,18 @@ class Tile {
     this.answerVisible = answerVisible;
     this.isMatched = isMatched;
     this.logo = logo;
+    this.tileId = "";
   }
 
   /**
   * Compares two tiles, returns true if they are matching
   */
-  checkMatch(a, b) {
-    if(a.logo == b.logo){
-      a.isMatched = true
+  checkMatch(b) {
+    if(this.logo == b.logo){
+      this.isMatched = true
       b.isMatched = true
 
-      a.answerVisible = true
+      this.answerVisible = true
       b.answerVisible = true
 
       return true;

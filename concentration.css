@@ -2,17 +2,27 @@ body {
 	margin: 100px;
 }
 
+#blockDiv {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+		display: none;
+    z-index: 999;
+}
+
 .wrapper {
-    border: 2px solid #f76707;
     border-radius: 5px;
-    background-color: #fff4e6;
 		display: grid;
+		grid-gap: 10px;
   	grid-template-columns: repeat(4, 1fr);
-  	grid-gap: 10px;
+		height:100px;
+		width:100px;
 }
 
 .wrapper > div {
     border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 6px;
     padding: 1em;
 }

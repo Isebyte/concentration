@@ -26,7 +26,6 @@ class Board {
 
   constructor() {
     this.numPieces = 8;
-    this.tiles = []; // holds array of tiles. Starts empty
     this.numPiecesMatched = 0
   }
 
@@ -41,12 +40,12 @@ class Board {
       for (j = 0; j < 2; j++) { // fill with two of each
         //console.log(imgArray[i].src);
         var newTile = new Tile(imgArray[i].src, false, false);
-        this.tiles.push(newTile);
+        tiles.push(newTile);
       }
       j = 0;
     }
-    //console.log(this.tiles);
-    this.tiles = this.shuffleTiles(this.tiles);
+    //console.log(tiles);
+    tiles = this.shuffleTiles(tiles);
     this.renderTiles();
   }
 
@@ -55,7 +54,7 @@ class Board {
    */
   loadBoard() {
     var prev_game = this.textParse(); // get array from save.json file
-    this.tiles = prev_game;
+    tiles = prev_game;
     this.renderTiles();
   }
 
@@ -99,7 +98,7 @@ class Board {
     var i;
     for (i = 0; i< 16; i++) {
       var addTile = document.createElement('div');
-      addTile.id = "card-" + i;
+      addTile.id = i;
       addTile.className = "card";
       // Create the inner div before appending to the body
       var front = document.createElement('div');
@@ -113,8 +112,9 @@ class Board {
       document.getElementsByClassName('wrapper')[0].appendChild(addTile);
 
       // append images to back of cards
-      var logoImg = this.tiles[i].logo;
-      console.log(logoImg);
+      var logoImg = tiles[i].logo;
+      tiles[i].tileId = "#"+i;
+      //console.log(logoImg);
       var tileImg = document.createElement('img');
       tileImg.id = "tileImg";
       tileImg.height = 100;
@@ -123,30 +123,5 @@ class Board {
       document.getElementById(addTile.id).getElementsByClassName("back")[0].appendChild(tileImg);
     }
   }
-
- /**
-  * Determines if one move has been made i.e. two pieces have been chosen
-  */
-  finishedOneMove(){
-    console.log('finishedOneMove')
-    var numPiecesChosen = 0
-    for (let i = 0; i < this.numPieces; i++){
-      if(this.tiles[i].answerVisible){
-        numPiecesChosen += 1
-        console.log("numPiecesChosen: " + numPiecesChosen )
-      }
-    }
-    
-    if(numPiecesChosen == 2){
-      if(checkMatch()){
-        this.numPiecesMatched += 2
-        if(this.numPiecesMatched === this.numPieces){
-          gameCompleted()
-        }
-      }
-    }  
-
-  }
-
 
 }
