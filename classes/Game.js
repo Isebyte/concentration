@@ -36,8 +36,8 @@ class Game {
 	*	Game is done. Restart logic from newGame()
 	*/
 	gameCompleted() {
-		alert("Game completed! Final score: " + this.score)
-		newGame()
+		alert("Game completed! Final score: " + this.score);
+		this.newGame();
 	}
 
 }

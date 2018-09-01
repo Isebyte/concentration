@@ -6,9 +6,9 @@
 class Tile {
 
   constructor(logo, isMatched, answerVisible) {
-    this.answerVisible = answerVisible
-    this.isMatched = isMatched
-    this.logo = logo
+    this.answerVisible = answerVisible;
+    this.isMatched = isMatched;
+    this.logo = logo;
   }
 
   /**
