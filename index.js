@@ -11,4 +11,8 @@ window.onload = function(){
     $(".card").flip({
       trigger: 'click'
      });
+
+     $(".card").on('flip:done',function(){
+        current.currentBoard.finishedOneMove()
+      });
 }
