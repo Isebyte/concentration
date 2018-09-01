@@ -16,7 +16,8 @@ class Game {
 	newGameSetup() {
 		console.log("Starting a new game...");
 		this.score = 0;
-		document.getElementById("score").innerHTML = 0;
+		document.getElementById("score").innerHTML = "Score:  " + this.score;
+		
 	}
 
 	/**
@@ -112,7 +113,7 @@ function finishedOneMove(id,game){
 				 numPiecesChosen = []; // reset
 				 $("#blockDiv").hide();  // allow clicks
 			 }, 500);
-
-
 	}
 }
+
+

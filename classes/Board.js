@@ -38,7 +38,6 @@ class Board {
     var isSecond = false;
     for (i = 0; i < this.numPieces; i++) {
       for (j = 0; j < 2; j++) { // fill with two of each
-        //console.log(imgArray[i].src);
         var newTile = new Tile(imgArray[i].src, false, false);
         tiles.push(newTile);
       }
@@ -123,5 +122,4 @@ class Board {
       document.getElementById(addTile.id).getElementsByClassName("back")[0].appendChild(tileImg);
     }
   }
-
 }

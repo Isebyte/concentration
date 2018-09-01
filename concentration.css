@@ -1,29 +1,36 @@
 body {
     margin: 100px;
-    background-color: aquamarine
+    background-color: aquamarine;
+    max-width: 500px;
+    margin: auto;
+    margin: auto;
+    text-align: center;
 }
 
 #blockDiv {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 50%;
+    right: 50%;
     height: 100%;
     width: 100%;
-		display: none;
+	display: none;
     z-index: 999;
 }
 
 .wrapper {
     border-radius: 5px;
-		display: grid;
-		grid-gap: 10px;
+	display: grid;
+	grid-gap: 10px;
   	grid-template-columns: repeat(4, 1fr);
-		height:100px;
-		width:100px;
+	height:100px;
+	width:100px;
 }
 
 .wrapper > div {
+    background-color: white;
     border: 2px solid black;
     border-radius: 6px;
     padding: 1em;
 }
+
+
