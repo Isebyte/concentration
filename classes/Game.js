@@ -6,6 +6,7 @@
 class Game {
 
 	constructor() {
+		this.currentBoard = new Board();
 		this.score = 0;
 	}
 
@@ -13,7 +14,7 @@ class Game {
 	* Reset game member variables
 	*/
 	newGameSetup() {
-		alert("Starting a new game...");
+		console.log("Starting a new game...");
 		this.score = 0;
 		document.getElementById("score").innerHTML = 0;
 	}
@@ -23,12 +24,12 @@ class Game {
 	* game or if they want to have a new board.
 	*/
 	newGame() {
-		var currentBoard = new Board();
+		this.currentBoard = new Board();
 		 if(confirm("Do you wish to load a saved game? Press 'cancel' to start a new game.")) {
-			 currentBoard.loadBoard();
+			 this.currentBoard.loadBoard();
 		 } else {
 			 this.newGameSetup();
-			 currentBoard.fillBoard();
+			 this.currentBoard.fillBoard();
 		 }
 	}
 
@@ -36,8 +37,8 @@ class Game {
 	*	Game is done. Restart logic from newGame()
 	*/
 	gameCompleted() {
-		alert("Game completed! Final score: " + this.score)
-		newGame()
+		console.log("Game completed! Final score: " + this.score)
+		this.newGame()
 	}
 
 }
