@@ -39,13 +39,13 @@ class Board {
     var isSecond = false;
     for (i = 0; i < this.numPieces; i++) {
       for (j = 0; j < 2; j++) { // fill with two of each
-        console.log(imgArray[i].src);
+        //console.log(imgArray[i].src);
         var newTile = new Tile(imgArray[i].src, false, false);
         this.tiles.push(newTile);
       }
       j = 0;
     }
-    console.log(this.tiles);
+    //console.log(this.tiles);
     this.tiles = this.shuffleTiles(this.tiles);
     this.renderTiles();
   }
@@ -129,17 +129,18 @@ class Board {
   */
   finishedOneMove(){
     console.log('finishedOneMove')
-    let numPiecesChosen = 0
+    var numPiecesChosen = 0
     for (let i = 0; i < this.numPieces; i++){
       if(this.tiles[i].answerVisible){
         numPiecesChosen += 1
+        console.log("numPiecesChosen: " + numPiecesChosen )
       }
     }
-
+    
     if(numPiecesChosen == 2){
       if(checkMatch()){
         this.numPiecesMatched += 2
-        if(this.numPiecesMatched == this.numPieces){
+        if(this.numPiecesMatched === this.numPieces){
           gameCompleted()
         }
       }
