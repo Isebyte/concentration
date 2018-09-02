@@ -69,6 +69,7 @@ class Game {
 		a.download = 'data.json';
 		a.innerHTML = 'download JSON';
 		a.click()
+		//window.close(); TODO: UNCOMMENT WHEN DONE
 	}
 
 }

@@ -43,7 +43,6 @@ class Board {
       }
       j = 0;
     }
-    //console.log(tiles);
     //tiles = this.shuffleTiles(tiles);
     this.renderTiles();
   }
@@ -52,8 +51,14 @@ class Board {
    * Fills a board with tiles from previously saved game.
    */
   loadBoard() {
-    var prev_game = this.textParse(); // get array from save.json file
-    tiles = prev_game;
+    console.log('loadBoard')
+    $.getJSON("data.json", function (data) {
+      $.each(data, function (index, value) {
+         tiles.push(new Tile( value.logo.toString(), value.answerVisible.toString(), value.isMatched.toString()));
+      });
+  });
+  
+    console.log(tiles)
     this.renderTiles();
   }
 
@@ -123,4 +128,3 @@ class Board {
     }
   }
 }
-

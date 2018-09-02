@@ -1,0 +1,19 @@
+{
+  "name": "concentration",
+  "version": "1.0.0",
+  "description": "A simple tile game of memory matching using javascript and jQuery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuyumi/concentration.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuyumi/concentration/issues"
+  },
+  "homepage": "https://github.com/xuyumi/concentration#readme"
+}
