@@ -50,16 +50,17 @@ class Board {
   /**
    * Fills a board with tiles from previously saved game.
    */
-  loadBoard() {
-    console.log('loadBoard')
+  loadBoard(callback) {
+    console.log('loadBoard');
     $.getJSON("data.json", function (data) {
       $.each(data, function (index, value) {
          tiles.push(new Tile( value.logo.toString(), value.answerVisible.toString(), value.isMatched.toString()));
       });
   });
-  
-    console.log(tiles)
-    this.renderTiles();
+
+    //console.log(tiles)
+    callback();
+
   }
 
   /**
@@ -101,8 +102,6 @@ class Board {
     console.log("appending tiles");
     var i =0;
     for (i = 0; i< 16; i++) {
-      console.log(tiles)
-
       var addTile = document.createElement('div');
       addTile.id = i;
       addTile.className = "card";

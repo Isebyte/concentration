@@ -32,7 +32,11 @@ class Game {
 		numPiecesChosen = []; // reset
 		numPiecesMatched = 0;
 		 if(confirm("Do you wish to load a saved game? Press 'cancel' to start a new game.")) {
-			 this.currentBoard.loadBoard();
+			var current = this;
+			 this.currentBoard.loadBoard(function() {
+          current.currentBoard.renderTiles();
+        });
+
 		 } else {
 			 this.newGameSetup();
 			 this.currentBoard.fillBoard();
@@ -63,7 +67,7 @@ class Game {
 	*/
 	saveAndQuit(){
 		console.log(tiles)
-		var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tiles));	
+		var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tiles));
 		var a = document.createElement('a');
 		a.href = 'data:' + data;
 		a.download = 'data.json';
@@ -128,7 +132,3 @@ function finishedOneMove(id,game){
 			 }, 500);
 	}
 }
-
-
-
-
