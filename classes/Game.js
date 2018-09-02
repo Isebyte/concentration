@@ -8,6 +8,7 @@ class Game {
 	constructor() {
 		this.currentBoard = new Board();
 		this.score = 0;
+		this.tiles = []
 	}
 
 	/**
@@ -28,7 +29,7 @@ class Game {
 		current = this;
 		$( ".wrapper" ).empty(); // clear everything
 		this.currentBoard = new Board();
-		tiles = []; // empty tile array
+		this.tiles = []; // empty tile array
 		numPiecesChosen = []; // reset
 		numPiecesMatched = 0;
 		 if(confirm("Do you wish to load a saved game? Press 'cancel' to start a new game.")) {
@@ -57,6 +58,14 @@ class Game {
 	gameCompleted() {
 		console.log("Game completed! Final score: " + this.score);
 		this.newGame()
+	}
+	/**
+	*	User chooses to save mid-game. Downloads file of current game state.
+	*/
+	saveAndQuit(){
+		console.log(this.tiles)
+		var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.tiles));	
+		$('<a href="data:' + data + '" download="data.json">download JSON</a>').appendTo('#container');
 	}
 
 }
@@ -115,5 +124,7 @@ function finishedOneMove(id,game){
 			 }, 500);
 	}
 }
+
+
 
 

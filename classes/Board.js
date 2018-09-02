@@ -44,7 +44,7 @@ class Board {
       j = 0;
     }
     //console.log(tiles);
-    tiles = this.shuffleTiles(tiles);
+    //tiles = this.shuffleTiles(tiles);
     this.renderTiles();
   }
 
@@ -123,3 +123,4 @@ class Board {
     }
   }
 }
+
