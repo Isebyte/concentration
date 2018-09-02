@@ -18,7 +18,6 @@ class Game {
 		console.log("Starting a new game...");
 		this.score = 0;
 		document.getElementById("score").innerHTML = "Score:  " + this.score;
-		
 	}
 
 	/**
@@ -63,9 +62,13 @@ class Game {
 	*	User chooses to save mid-game. Downloads file of current game state.
 	*/
 	saveAndQuit(){
-		console.log(this.tiles)
-		var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.tiles));	
-		$('<a href="data:' + data + '" download="data.json">download JSON</a>').appendTo('#container');
+		console.log(tiles)
+		var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tiles));	
+		var a = document.createElement('a');
+		a.href = 'data:' + data;
+		a.download = 'data.json';
+		a.innerHTML = 'download JSON';
+		a.click()
 	}
 
 }
