@@ -54,12 +54,12 @@ class Board {
     console.log('loadBoard');
     $.getJSON("data.json", function (data) {
       $.each(data, function (index, value) {
-         tiles.push(new Tile( value.logo.toString(), value.answerVisible.toString(), value.isMatched.toString()));
+        console.log("pushing tile!");
+         tiles.push(new Tile( JSON.parse(JSON.stringify(value.logo)), JSON.parse(JSON.stringify(value.answerVisible)), JSON.parse(JSON.stringify(value.isMatched))));
       });
-  });
-
-    //console.log(tiles)
-    callback();
+      console.log("Finished loading board");
+      callback();
+    });
 
   }
 
@@ -117,6 +117,7 @@ class Board {
       document.getElementsByClassName('wrapper')[0].appendChild(addTile);
 
       // append images to back of cards
+      console.log(JSON.stringify(tiles));
       var logoImg = tiles[i].logo;
       tiles[i].tileId = "#"+i;
       //console.log(logoImg);

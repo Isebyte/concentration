@@ -8,7 +8,6 @@ class Game {
 	constructor() {
 		this.currentBoard = new Board();
 		this.score = 0;
-		this.tiles = []
 	}
 
 	/**
