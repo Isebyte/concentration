@@ -99,8 +99,10 @@ class Board {
   */
   renderTiles() {
     console.log("appending tiles");
-    var i;
+    var i =0;
     for (i = 0; i< 16; i++) {
+      console.log(tiles)
+
       var addTile = document.createElement('div');
       addTile.id = i;
       addTile.className = "card";
