@@ -79,7 +79,7 @@ class Game {
 	*	User chooses to save mid-game. Downloads file of current game state.
 	*/
 	saveAndQuit(){
-
+		alert("Game was saved!");
 		var content = JSON.stringify(tiles);
 		console.log(socketio.connected);
 		socketio.emit("writeJSON", content);
