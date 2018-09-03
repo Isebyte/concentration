@@ -3,7 +3,7 @@
  *
  */
 
-/*
+/**
  * Contains the board with tiles, and can load and save games.
  */
 
