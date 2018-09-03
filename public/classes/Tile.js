@@ -3,6 +3,10 @@
  *
  */
 
+/**
+ * Contains an image, and can be matched with one other tile.
+ */
+
 class Tile {
 
   constructor(logo, isMatched, answerVisible) {
