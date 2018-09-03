@@ -15,7 +15,7 @@ class Game {
 	newGameSetup() {
 		console.log("Starting a new game...");
 		this.score = 0;
-		document.getElementById("score").innerHTML = "Score:  " + this.score;
+		//document.getElementById("score").innerHTML = "Score:  " + this.score;
 	}
 
 	/**
@@ -65,10 +65,6 @@ class Game {
 				setVisible(this.id, game); // in Game.js
 		});
 
-
-	}
-
-	flipTrue() {
 
 	}
 
