@@ -22,7 +22,7 @@ imgArray[6].src = '../public/img/oracle.png';
 imgArray[7] = new Image(100,100);
 imgArray[7].src = '../public/img/samsung.png';
 
-/*
+/**
  * Contains all of the tiles, which can be flipped and matched.
  */
 
