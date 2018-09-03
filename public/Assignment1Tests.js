@@ -1,4 +1,3 @@
-
 const matchTest = require('tape');  //test if matching works
 
 matchTest('checkMatch should return true if the tiles match', function(t){
@@ -24,5 +23,19 @@ const fillTest = require('tape'); //test of filling the board
 
 fillTest('board should be filled properly', function(t){
         t.is(fillBoard());
+        t.end();
+});
+
+const oneMoveTest = require('tape'); //tests if a turn ends properly
+
+oneMoveTest('The turn should have ended properly', function(t){
+        t.is(finishedOneMove(id, game));
+        t.end();
+});
+
+const visibleTest = require('tape'); //tests if visibility of matched tiles is set correctly
+
+visibleTest('Matched tiles should be visible', function(t){
+        t.is(setVisible(id, game));
         t.end();
 });
