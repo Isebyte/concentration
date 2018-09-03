@@ -50,7 +50,7 @@ class Game {
    * Load game function to render saved files from data.json
    */
   loadGame() {
-    var current = this;
+
     this.tiles = []; // empty tile array
     numPiecesChosen = []; // reset
     numPiecesMatched = 0;
@@ -114,7 +114,6 @@ function setVisible(id, game) {
   // match card id to tile objects
   console.log(id + " flipped");
   var i = parseInt(id, 10); // convert string to int
-  tiles[i].answerVisible = true;
   numPiecesChosen.push(tiles[i]);
   //console.log(numPiecesChosen );
   if (numPiecesChosen.length == 2) {
@@ -131,10 +130,15 @@ function finishedOneMove(id, game) {
   console.log(numPiecesChosen);
   // temporarily block all other clicks
   $("#blockDiv").show();
-  if (numPiecesChosen[0].checkMatch(numPiecesChosen[1])) {
+  if (numPiecesChosen[0].checkMatch(numPiecesChosen[1]) && numPiecesChosen[0].tileId != numPiecesChosen[1].tileId) {
     console.log("Match made");
     numPiecesMatched += 2;
-    //document.getElementById("score").innerHTML = game.score;
+
+    // strip # from id
+    one = tiles.indexOf(numPiecesChosen[0]);
+    two = tiles.indexOf(numPiecesChosen[1]);
+    tiles[one].answerVisible = true;
+    tiles[two].answerVisible = true;
 
     // disable reflipping
     $(numPiecesChosen[0].tileId).off(".flip");
