@@ -19,7 +19,6 @@ io.on("connection", function (socket) {
     socket.on('writeJSON', function (data) {
       console.log("Received data");
       fs.writeFile("public/data.json", data, 'utf8', function (err) {
-        response.setContentType("text/plain");
           if (err) {
               return console.log(err);
           }
