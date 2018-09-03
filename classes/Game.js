@@ -65,6 +65,7 @@ class Game {
 	*	User chooses to save mid-game. Downloads file of current game state.
 	*/
 	saveAndQuit(){	
+		//SRC: https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser
 		var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tiles));
 		var downloadAnchorNode = document.createElement('a');
 		downloadAnchorNode.setAttribute("href",     dataStr);
@@ -134,15 +135,3 @@ function finishedOneMove(id,game){
 	}
 }
 
-//https://stackoverflow.com/questions/13261970/how-to-get-the-absolute-path-of-the-current-javascript-file-name
-function absFileLoc(filename) {
-	var scriptElements = document.getElementsByTagName('script');
-	for (var i = 0; i < scriptElements.length; i++) {
-	  var source = scriptElements[i].src;
-	  if (source.indexOf(filename) > -1) {
-		var location = source.substring(0, source.indexOf(filename)) + filename;
-		return location;
-	  }
-	}
-	return false;
-  }

@@ -63,24 +63,6 @@ class Board {
 
   }
 
-  /**
-   * Parses tile array from locally saved text file
-   * @param {*} filename
-   * @return tiles array
-   */
-  textParse(filename) {
-    console.log('textParse()')
-    // load in JSON data from text file then parse into an array of tile objects
-    var parsedTiles = [];
-    // $.getJSON("../saves/save.json", function (data) {
-    //   for(var i in data) {
-    //     parsedTiles.push([i, JSON.parse(data[i])]);
-    //   });
-    // handle any errors
-    //.error(function() { alert("Error. Please refresh the page"); });
-    return parsedTiles;
-  }
-
   /*
   * Shuffles the contents of an array
   * @param array e
@@ -130,3 +112,5 @@ class Board {
     }
   }
 }
+
+
