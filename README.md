@@ -18,6 +18,7 @@ Do `npm install` to install dependencies need to run.
 (if localhost doesn't work try 127.0.0.1:8080))
 
 ### Notes:
+- Recommendation: wait until tiles have finished flipping back over before choosing next cards. Refresh if screen hangs.
 - in the javascript console upon loading, you may encounter:
 `XML Parsing Error: syntax error
 Location: file:///Users/Isabelle/Desktop/Izzy/CS/CSE-437/concentration/public/data.json
