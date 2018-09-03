@@ -16,7 +16,7 @@ class Game {
 	newGameSetup() {
 		console.log("Starting a new game...");
 		this.score = 0;
-		document.getElementById("score").innerHTML = "Score:  " + this.score;
+		document.getElementById("score").innerHTML = this.score;
 	}
 
 	/**
@@ -66,7 +66,8 @@ class Game {
 	*/
 	saveAndQuit(){	
 		//SRC: https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser
-		var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tiles));
+		var data = {tiles: tiles, numPieces: this.currentBoard.numPieces, numPiecesMatched: this.currentBoard.numPiecesMatched}
+		var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
 		var downloadAnchorNode = document.createElement('a');
 		downloadAnchorNode.setAttribute("href",     dataStr);
 		downloadAnchorNode.setAttribute("download", "data.json");
@@ -107,8 +108,8 @@ function finishedOneMove(id,game){
 		if(numPiecesChosen[0].checkMatch(numPiecesChosen[1])){
 			console.log("Match made");
 			numPiecesMatched += 2;
-			game.score += 100;
-			document.getElementById("score").innerHTML = game.score;
+			game.score += 1;
+			document.getElementById("score").innerHTML = game.score * 100;
 
 			// disable reflipping
 			$(numPiecesChosen[0].tileId).off(".flip");

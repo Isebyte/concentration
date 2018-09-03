@@ -12,5 +12,9 @@ window.onload = function(){
     console.log("window.onload");
     current = new Game();
     current.newGame();
-    document.getElementById('saveAndQuit').addEventListener("click",  current.saveAndQuit)
+    document.getElementById('saveAndQuit').addEventListener("click",  saveAndQuitHelper)
+}
+
+function saveAndQuitHelper(){
+    current.saveAndQuit()
 }

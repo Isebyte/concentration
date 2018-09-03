@@ -52,11 +52,15 @@ class Board {
    */
   loadBoard(callback) {
     console.log('loadBoard');
+    console.log(current)
     $.getJSON("data.json", function (data) {
-      $.each(data, function (index, value) {
-        console.log("pushing tile!");
-         tiles.push(new Tile( JSON.parse(JSON.stringify(value.logo)), JSON.parse(JSON.stringify(value.answerVisible)), JSON.parse(JSON.stringify(value.isMatched))));
-      });
+      current.currentBoard.numPiecesMatched = data.numPiecesMatched
+      document.getElementById("score").innerHTML = current.currentBoard.numPiecesMatched * 100
+      current.score = data.score
+      current.currentBoard.numPieces = data.numPieces
+      for(var piecesRead = 0; piecesRead < current.currentBoard.numPieces * 2; piecesRead++){
+          tiles.push(new Tile( JSON.parse(JSON.stringify(data.tiles[piecesRead].logo)), JSON.parse(JSON.stringify(data.tiles[piecesRead].answerVisible)), JSON.parse(JSON.stringify(data.tiles[piecesRead].isMatched))));
+      }
       console.log("Finished loading board");
       callback();
     });
