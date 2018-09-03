@@ -54,7 +54,7 @@ class Game {
    * Load game function to render saved files from data.json
    */
   loadGame() {
-
+    alert("Loading saved game!");
     this.tiles = []; // empty tile array
     numPiecesChosen = []; // reset
     numPiecesMatched = 0;
