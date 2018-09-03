@@ -11,7 +11,7 @@ var socketio;
    * Main method to be executed on page load
    */
 window.onload = function(){
-    socketio = io.connect("http://127.0.0.1:8080/");
+    socketio = io.connect();
     console.log("window.onload");
     current = new Game();
     current.newGame();

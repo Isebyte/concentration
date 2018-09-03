@@ -161,7 +161,6 @@ function finishedOneMove(id, game) {
         $(numPiecesChosen[0].tileId).flip(false);
         $(numPiecesChosen[1].tileId).flip(false);
         console.log("unflipped");
-
         numPiecesChosen = []; // reset
         $("#blockDiv").hide(); // allow clicks
       }, 500);

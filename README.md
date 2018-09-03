@@ -20,7 +20,3 @@ Do `npm install` to install dependencies need to run.
 ### Notes:
 - Utilized Tape testing: https://github.com/substack/tape
 - Recommendation: wait until tiles have finished flipping back over before choosing next cards. Refresh if screen hangs.
-- in the javascript console upon loading, you may encounter:
-`XML Parsing Error: syntax error
-Location: file:///Users/Isabelle/Desktop/Izzy/CS/CSE-437/concentration/public/data.json
-Line Number 1, Column 1:`, which is due to server-side header setup (text/plain). However, the game still works as designed.
