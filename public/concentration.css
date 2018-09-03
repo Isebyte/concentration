@@ -13,15 +13,15 @@ body {
     right: 50%;
     height: 100%;
     width: 100%;
-	display: none;
+	  display: none;
     z-index: 999;
 }
 
 .wrapper {
-    border-radius: 5px;
+  border-radius: 5px;
 	display: grid;
 	grid-gap: 10px;
-  	grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 	height:100px;
 	width:100px;
 }

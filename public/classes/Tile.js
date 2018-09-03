@@ -1,7 +1,7 @@
 /*
-* Javascript file for Tile class
-*
-*/
+ * Javascript file for Tile class
+ *
+ */
 
 class Tile {
 
@@ -13,10 +13,10 @@ class Tile {
   }
 
   /**
-  * Compares two tiles, returns true if they are matching
-  */
+   * Compares two tiles, returns true if they are matching
+   */
   checkMatch(b) {
-    if(this.logo == b.logo){
+    if (this.logo == b.logo) {
       this.isMatched = true
       b.isMatched = true
 
@@ -25,6 +25,7 @@ class Tile {
 
       return true;
     } else {
-      return false; }
+      return false;
+    }
   }
 }

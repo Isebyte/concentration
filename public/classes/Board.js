@@ -6,21 +6,21 @@
 var imgArray = new Array();
 
 imgArray[0] = new Image(100,100);
-imgArray[0].src = '../img/amazon.jpg';
+imgArray[0].src = '../public/img/amazon.jpg';
 imgArray[1] = new Image(100,100);
-imgArray[1].src = '../img/cisco.png';
+imgArray[1].src = '../public/img/cisco.png';
 imgArray[2] = new Image(100,100);
-imgArray[2].src = '../img/facebook.png';
+imgArray[2].src = '../public/img/facebook.png';
 imgArray[3] = new Image(100,100);
-imgArray[3].src = '../img/google.png';
+imgArray[3].src = '../public/img/google.png';
 imgArray[4] = new Image(100,100);
-imgArray[4].src = '../img/ibm.jpg';
+imgArray[4].src = '../public/img/ibm.jpg';
 imgArray[5] = new Image(100,100);
-imgArray[5].src = '../img/microsoft.png';
+imgArray[5].src = '../public/img/microsoft.png';
 imgArray[6] = new Image(100,100);
-imgArray[6].src = '../img/oracle.png';
+imgArray[6].src = '../public/img/oracle.png';
 imgArray[7] = new Image(100,100);
-imgArray[7].src = '../img/samsung.png';
+imgArray[7].src = '../public/img/samsung.png';
 
 class Board {
 
