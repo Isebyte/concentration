@@ -32,8 +32,8 @@ class Game {
 		numPiecesMatched = 0;
 		 if(confirm("Do you wish to load a saved game? Press 'cancel' to start a new game.")) {
 			var current = this;
-			 this.currentBoard.loadBoard(function() {
-          current.currentBoard.renderTiles();
+			this.currentBoard.loadBoard(function() {
+          	current.currentBoard.renderTiles();
         });
 
 		 } else {
@@ -64,14 +64,16 @@ class Game {
 	/**
 	*	User chooses to save mid-game. Downloads file of current game state.
 	*/
-	saveAndQuit(){
-		console.log(tiles)
-		var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tiles));
-		var a = document.createElement('a');
-		a.href = 'data:' + data;
-		a.download = 'data.json';
-		a.innerHTML = 'download JSON';
-		a.click()
+	saveAndQuit(){	
+		var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tiles));
+		var downloadAnchorNode = document.createElement('a');
+		downloadAnchorNode.setAttribute("href",     dataStr);
+		downloadAnchorNode.setAttribute("download", "data.json");
+		document.body.appendChild(downloadAnchorNode); // required for firefox
+		downloadAnchorNode.click();
+		downloadAnchorNode.remove();
+
+
 		//window.close(); TODO: UNCOMMENT WHEN DONE
 	}
 
@@ -131,3 +133,16 @@ function finishedOneMove(id,game){
 			 }, 500);
 	}
 }
+
+//https://stackoverflow.com/questions/13261970/how-to-get-the-absolute-path-of-the-current-javascript-file-name
+function absFileLoc(filename) {
+	var scriptElements = document.getElementsByTagName('script');
+	for (var i = 0; i < scriptElements.length; i++) {
+	  var source = scriptElements[i].src;
+	  if (source.indexOf(filename) > -1) {
+		var location = source.substring(0, source.indexOf(filename)) + filename;
+		return location;
+	  }
+	}
+	return false;
+  }

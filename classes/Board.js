@@ -117,7 +117,7 @@ class Board {
       document.getElementsByClassName('wrapper')[0].appendChild(addTile);
 
       // append images to back of cards
-      console.log(JSON.stringify(tiles));
+      console.log(tiles[i].logo);
       var logoImg = tiles[i].logo;
       tiles[i].tileId = "#"+i;
       //console.log(logoImg);
