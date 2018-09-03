@@ -21,5 +21,4 @@ Do `npm install` to install dependencies need to run.
 - in the javascript console upon loading, you may encounter:
 `XML Parsing Error: syntax error
 Location: file:///Users/Isabelle/Desktop/Izzy/CS/CSE-437/concentration/public/data.json
-Line Number 1, Column 1:`, which is due to server-side header setup. However,
-the game still works as designed.
+Line Number 1, Column 1:`, which is due to server-side header setup (text/plain). However, the game still works as designed.
