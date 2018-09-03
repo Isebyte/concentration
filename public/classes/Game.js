@@ -3,6 +3,10 @@
  *
  */
 
+/*
+ * Contains the board with tiles, and can load and save games.
+ */
+
 class Game {
   constructor() {
     this.currentBoard = new Board();
