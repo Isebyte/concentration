@@ -94,8 +94,9 @@ class Game {
    *	Game is done. Restart logic from newGame()
    */
   gameCompleted() {
-    console.log("Game completed! Final score: " + this.score);
-    this.newGame()
+    console.log("Game completed!");
+    //this.newGame()
+    alert("Game completed! Please refresh the screen to play again.");
   }
   /**
    *	User chooses to save mid-game. Downloads file of current game state.
