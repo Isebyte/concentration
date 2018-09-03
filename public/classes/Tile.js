@@ -3,7 +3,7 @@
  *
  */
 
-/*
+/**
  * Contains an image, and can be matched with one other tile.
  */
 
