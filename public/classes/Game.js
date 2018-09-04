@@ -30,7 +30,7 @@ class Game {
 		var current = this;
     $(".wrapper").empty(); // clear everything
     this.currentBoard = new Board();
-    this.tiles = []; // empty tile array
+    tiles = []; // empty tile array
     numPiecesChosen = []; // reset
     numPiecesMatched = 0;
     if (confirm("Do you wish to load a saved game? Press 'cancel' to start a new game.")) {

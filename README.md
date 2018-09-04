@@ -18,5 +18,5 @@ Do `npm install` to install dependencies need to run.
 (if localhost doesn't work try 127.0.0.1:8080))
 
 ### Notes:
-- Utilized Tape testing: https://github.com/substack/tape
+- Utilized QUnit testing: to run, open test.html (running client side, so no need for node)
 - Recommendation: wait until tiles have finished flipping back over before choosing next cards. Refresh if screen hangs.

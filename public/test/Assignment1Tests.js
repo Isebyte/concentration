@@ -1,6 +1,6 @@
-
-import Board from './Board';
-import Tile from './Tile';
+if (typeof(require) !== 'undefined') {
+    require('../classes/Tile.js');
+}
 
 const matchTest = require('tape');  //test if matching works
 
@@ -10,7 +10,7 @@ matchTest('checkMatch should return true if the tiles match', function(t) {
 		t.ok(checkMatch(tileA, tileB));
                 t.end();
 	});
-//
+
 // const setupTest = require('tape'); //test setup of game
 //
 // setupTest('all values from setup should be 0', function(t){
