@@ -56,7 +56,7 @@ class Board {
    */
   loadBoard(callback) {
     console.log('loadBoard');
-    $.getJSON("../data.json", function (data) {
+    $.getJSON("../saves/data.json", function (data) {
       $.each(data, function (index, value) {
         console.log("pushing tile!");
          tiles.push(new Tile( JSON.parse(JSON.stringify(value.logo)), JSON.parse(JSON.stringify(value.answerVisible)), JSON.parse(JSON.stringify(value.isMatched))));

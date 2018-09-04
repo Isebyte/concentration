@@ -18,7 +18,8 @@ io.on("connection", function (socket) {
     // This callback runs when a new Socket.IO connection is established.
     socket.on('writeJSON', function (data) {
       console.log("Received data");
-      fs.writeFile("../data.json", data, 'utf8', function (err) {
+      console.log(__dirname + '/public/saves/data.json');
+      fs.writeFile(__dirname + '/public/saves/data.json', data, 'utf8', function (err) {
           if (err) {
               return console.log(err);
           }
