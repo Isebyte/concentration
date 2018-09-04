@@ -47,7 +47,7 @@ class Board {
       }
       j = 0;
     }
-    tiles = shuffleTiles(tiles);
+    tiles = this.shuffleTiles(tiles);
     callback();
   }
 
@@ -67,6 +67,21 @@ class Board {
     });
 
   }
+
+  /*
+  * Shuffles the contents of an array
+  * @param array e
+  * referenced from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+  */
+  shuffleTiles(array) {
+    console.log("shuffling cards");
+    for (let i = array.length - 1; i > 0; --i) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
 
   /**
   * Physically renders tiles onto the screen
@@ -104,18 +119,4 @@ class Board {
     }
     callback();
   }
-}
-
-/*
-* Shuffles the contents of an array
-* @param array e
-* referenced from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
-*/
-function shuffleTiles(array) {
-  console.log("shuffling cards");
-  for (let i = array.length - 1; i > 0; --i) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
 }
