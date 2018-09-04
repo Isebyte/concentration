@@ -55,7 +55,7 @@ class Game {
    */
   loadGame() {
     alert("Loading saved game!");
-    this.tiles = []; // empty tile array
+    tiles = []; // empty tile array
     numPiecesChosen = []; // reset
     numPiecesMatched = 0;
     $(".wrapper").empty(); // clear everything
@@ -107,7 +107,7 @@ class Game {
     console.log(socketio.connected);
     socketio.emit("writeJSON", content);
     console.log("sent JSON to server side");
-    //window.close(); TODO: UNCOMMENT WHEN DONE
+
   }
 
 }
