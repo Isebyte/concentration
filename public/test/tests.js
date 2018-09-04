@@ -11,6 +11,14 @@ QUnit.test( "Testing checkMatch from Tile.js", function( assert ) {
   var result = tileA.checkMatch(tileB);
   console.log(result);
   assert.ok( result, "true succeeds" );
+
+  // test unequal shuffleTiles
+  tileA = new Tile("logoA",false,false);
+  tileB = new Tile("logoB",false,false);
+  result = tileA.checkMatch(tileB);
+
+  assert.notOk( result, "false succeeds" );
+
 });
 
 QUnit.test("Testing shuffleTiles from Board.js", function(assert) {
@@ -24,6 +32,13 @@ QUnit.test("Testing shuffleTiles from Board.js", function(assert) {
   console.log(result);
   assert.deepEqual( result, testArray, "Two arrays should be different after shuffling" );
 
+  // try with larger array
+  var i;
+  for (i=0; i < 1000; i++) {
+    testArray[i] == i;
+  }
+  result = testArray;
+  assert.deepEqual( result, testArray, "Two arrays should be different after shuffling (large)" );
 });
 
 QUnit.test("Testing fillBoard from Board.js", function(assert) {
