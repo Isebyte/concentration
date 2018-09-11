@@ -4,9 +4,6 @@ A simple tile game of memory matching using javascript and jQuery
 
 ### [Flowchart](https://drive.google.com/file/d/17wuUPiKCjAFG5C2kMf1e--yFHcM8ZdcQ/view?usp=sharing)
 
-### [Testing](https://docs.google.com/document/d/1A9Qt6aqgksdqASCX_gNS6axERrmzyl9JKqZ_5Hgf5vQ/edit?usp=sharing)
-
-
 Uses Node.js and Socket.io for saving and loading data.
 
 To install Node:
